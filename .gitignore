@@ -1,0 +1,63 @@
+# Build directories
+build/
+build-*/
+out/
+*.ninja
+.ninja_*
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+
+# Build artifacts
+*.so
+*.dll
+*.a
+*.lib
+*.dylib
+*.exe
+*.bc
+*.ll
+*.o
+*.obj
+*.pdb
+*.ilk
+*.exp
+
+# IDE
+.vscode/
+.idea/
+*.user
+*.suo
+*.sdf
+*.opensdf
+.vs/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+*.egg-info/
+dist/
+.pytest_cache/
+
+# Profiling / arena outputs
+arena/results/
+arena/corpus/
+arena/payloads/evolved/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor swap
+*.swp
+*.swo
+*~
+\#*\#

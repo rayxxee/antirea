@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.1.0",
+  "profile_name": "paranoid",
+
+  "_comment_pass_stacking": "§5b: Promon 2026 — stacking 3+ passes drops AI deobfuscation to 8-26%. All five passes enabled.",
+
+  "pass1_ephemeral_str":   true,
+  "pass2_env_cff":         true,
+  "pass3_poly_mba":        true,
+  "pass4_honeypot":        true,
+  "pass5_dynamic_barrier": true,
+
+  "sensor_d": {
+    "enabled":    true,
+    "cycles_max": 400,
+    "_comment": "Tight bare-metal threshold. Run mirage_sensor_d_calibrate() to tune for your hardware."
+  },
+
+  "mba": {
+    "a1":          6364136223846793005,
+    "a0":          1442695040888963407,
+    "basis_index": 0,
+    "_comment_rotation": "Rotate a1/a0/basis_index quarterly per §6.2. a1 must be odd."
+  },
+
+  "honeypot": {
+    "enabled":            true,
+    "decompiler_strings": true,
+    "_shelf_life_4b":     "disposable",
+    "_comment_4b": "tier-2/disposable (§6.3) — re-evolve via antirea-arena GA when strings go stale"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": "0.1.0",
+  "profile_name": "light",
+
+  "_comment": "Minimal overhead. Only string encryption (Pass 1). CI / development use.",
+
+  "pass1_ephemeral_str":   true,
+  "pass2_env_cff":         false,
+  "pass3_poly_mba":        false,
+  "pass4_honeypot":        false,
+  "pass5_dynamic_barrier": false,
+
+  "sensor_d": {
+    "enabled":    false,
+    "cycles_max": 1000
+  },
+
+  "mba": {
+    "a1":          6364136223846793005,
+    "a0":          1442695040888963407,
+    "basis_index": 0
+  },
+
+  "honeypot": {
+    "enabled":            false,
+    "decompiler_strings": false,
+    "_shelf_life_4b":     "disposable"
+  }
+}
