@@ -141,13 +141,17 @@ int antireaOptMain(int argc, char **argv)
 
     ModulePassManager MPM;
     if (VerifyOnly) {
-        /* Only run the verifier, not the full pipeline */
-        MPM.addPass(mirage::VolatileWipeVerifier());
-    } else {
-        /* Build pipeline: LLVM standard optimization + AntiREA passes appended
-         * via the OptimizerLastEPCallback registered above */
-        MPM = PB.buildPerModuleDefaultPipeline(OptLevel);
+        /* Only run the verifier, not the full pipeline.
+         * Phase 0: verifier is a no-op — add the real pass in Phase 2.
+         * MPM.addPass(mirage::VolatileWipeVerifier());
+         */
+        llvm::outs() << "antirea-opt: --verify-only: verifier stub (Phase 0 — no injected wipes yet)\n";
+        return 0;
     }
+
+    /* Build pipeline: LLVM standard optimization + AntiREA passes appended
+     * via the OptimizerLastEPCallback registered above */
+    MPM = PB.buildPerModuleDefaultPipeline(OptLevel);
 
     MPM.run(*M, MAM);
 

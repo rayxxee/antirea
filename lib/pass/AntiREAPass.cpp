@@ -139,12 +139,9 @@ void mirage::registerAntiREAPasses(PassBuilder &PB)
             if (profile.pass4_honeypot)
                 MPM.addPass(HoneypotPass());
 
-            /* Verifier always runs last — cannot be disabled */
-            MPM.addPass(createModuleToFunctionPassAdaptor(
-                /* VolatileWipeVerifier is a module pass — wrap correctly */
-                /* TODO Phase 2: MPM.addPass(VolatileWipeVerifier()); */
-                NoOpFunctionPass()
-            ));
+            /* Verifier always runs last — cannot be disabled.
+             * Phase 2: MPM.addPass(VolatileWipeVerifier());
+             * Phase 0: no injected wipes exist yet — verifier is a no-op. */
         }
     );
 }
